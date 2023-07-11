@@ -4,12 +4,16 @@
 [![stars](https://img.shields.io/github/stars/Gribouillis/managetkeventdata)]()
 [![python](https://img.shields.io/github/languages/top/Gribouillis/managetkeventdata)]()
 
+## Version
+
+2023.07.09
+
 ## Install from main branch
 ```
 python -m pip install git+https://github.com/Gribouillis/managetkeventdata.git
 ```
 
-# Usage
+## Usage
 
 This module 'managetkeventdata' offers the following features
 
