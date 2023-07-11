@@ -1,4 +1,5 @@
-# Makes _something_ easy again!
+# Manage virtual events carrying arbitrary data in tkinter!
+
 [![License: MIT](https://img.shields.io/github/license/Gribouillis/managetkeventdata)](https://opensource.org/licenses/MIT)
 [![stars](https://img.shields.io/github/stars/Gribouillis/managetkeventdata)]()
 [![Github All Releases](https://img.shields.io/github/downloads/Gribouillis/managetkeventdata/total.svg)]()
@@ -12,17 +13,12 @@
 
 [![tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FGribouillis%2Fmanagetkeventdata)](https://twitter.com/intent/tweet?text=I%20found%20this%20awesome%20repo%20on%20GitHub%20%26%20PyPI%20that%20simplifies%20life%20of%20developers%20so%20much!&url=https%3A%2F%2Fgithub.com%2FGribouillis%2Fmanagetkeventdata)
 
-## Install from PyPi
-
-Not available
-
 ## Install from main branch
 ```
-pithon -m pip install git+https://github.com/Gribouillis/managetkeventdata.git
+python -m pip install git+https://github.com/Gribouillis/managetkeventdata.git
 ```
 
-# Example usage!
-Manage virtual events carrying arbitrary data in tkinter
+# Usage
 
 This module 'managetkeventdata' offers the following features
 
