@@ -12,33 +12,83 @@
 
 [![tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FGribouillis%2Fmanagetkeventdata)](https://twitter.com/intent/tweet?text=I%20found%20this%20awesome%20repo%20on%20GitHub%20%26%20PyPI%20that%20simplifies%20life%20of%20developers%20so%20much!&url=https%3A%2F%2Fgithub.com%2FGribouillis%2Fmanagetkeventdata)
 
-### Support me
-
-
-[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/Gribouillis)
-
-
-Some appreciatory description
-- [x] Lightweight
-- [x] Easiest to use 
-
 ## Install from PyPi
-```
-pip3 install managetkeventdata
-```
 
-## Or Install from main branch
+Not available
+
+## Install from main branch
 ```
-pip3 install git+https://github.com/Gribouillis/managetkeventdata.git
+pithon -m pip install git+https://github.com/Gribouillis/managetkeventdata.git
 ```
 
 # Example usage!
-Use it like this..
+Manage virtual events carrying arbitrary data in tkinter
+
+This module 'managetkeventdata' offers the following features
+
+1) Generate virtual events in tkinter carrying any Python
+object as client data (which tkinter cannot do natively).
+
+2) Bind virtual events to event handler in order to receive
+these virtual events and their client data.
+
+3) Create proxies of Python objects which methods can
+be called from any thread but are executed in tkinter's
+main thread. Two kinds of proxies can be created:
+    * 'mute' proxies which methods have no return values (like procedures)
+    * 'ordinary' proxies which methods have a return value (like functions)
+The advantage of mute proxies is that the calling thread
+doesn't have to wait for the return value when calling a
+method.
+
+The virtual events can be generated in any thread, the
+event handlers are always executed by tkinter's main thread.
+
+In particular, this allows threads to update widgets by
+defining event handlers that manipulate the widgets.
+
+Usage example with event generation:
+
 ```
-cmpp
+    # create root widget
+    root = Tk()
+
+    # Define an event handler for the example
+    def handle_it(event):
+        print(event.widget)
+        print(event.data)
+
+    # Use the instance to bind a virtual event to the handler
+    bind(root, '<<test>>', handle_it)
+
+    # Later in code, generate virtual event with client data.
+    # The event generation can be done in another thread,
+    # The client data can be an arbitrary Python object.
+    ...
+    event_generate(root, '<<test>>', ['a', ['b', 'c']]))
+```
+Usage example with object proxy:
+```
+    class Spam:
+        def ham(self, foo, bar=''):
+            return bar + foo + bar
+
+    root = Tk()
+    pb = ProxyBuilder(root)
+    proxy = pb.proxy(Spam())
+
+    def work():
+        # method call in other thread
+        # actual execution of object method in main thread
+        s = proxy.ham('oof', bar='--') # returns '--oof--'
+
+    def start_work():
+        threading.Thread(target=work).start()
+
+    Button(root,text="Start Work",command=start_work).pack()
+    root.main_loop()
 ```
 
-You can use
 [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
+
 
