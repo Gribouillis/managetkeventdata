@@ -3,6 +3,7 @@ README.md
 pyproject.toml
 setup.cfg
 src/managetkeventdata/__init__.py
+src/managetkeventdata/__main__.py
 src/managetkeventdata.egg-info/PKG-INFO
 src/managetkeventdata.egg-info/SOURCES.txt
 src/managetkeventdata.egg-info/dependency_links.txt
